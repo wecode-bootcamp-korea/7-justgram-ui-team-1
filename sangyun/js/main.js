@@ -1,17 +1,19 @@
 const feeds = document.querySelectorAll(".feed");
 
-// 버튼이나 엔터로 댓글을 추가하는 리스너 추가
+
 feeds.forEach(feed => {
   const input = feed.querySelector(".input-comment");
   ['keypress', 'click'].forEach((eventType) => {
+    // 버튼이나 엔터로 댓글을 추가하는 리스너 추가
     feed.addEventListener(eventType, e => {
-      //
-      let {tagName, classList} = e.target;
+      console.log("event type: ", e.type);
+      let {classList} = e.target;
       let {type} = e;
-      if (type == "click" && tagName != "BUTTON") {
+      if (type == "click" && !classList.contains("add-comment")) {
           return;
       }
-      if (type == "keypress" && e.key != 'Enter') {
+      if (type == "keypress"
+        &&(e.key != 'Enter' || !classList.contains("input-comment"))) {
         return;
       }
       if (!input.value) {
@@ -21,8 +23,18 @@ feeds.forEach(feed => {
       writeComment.call(feed, input.value, "leeSang");
       input.value = "";
     });
+
+
+  })
+
+  // 댓글 좋아요 터치 시 하트 색 변경하는 리스너 추가
+  feed.addEventListener('click', (event) => {
+    const {target} = event;
+
   })
 });
+
+
 
 // json에 들어있는 코멘트를 feed에 넣음
 fetch('../data/comments.json')
