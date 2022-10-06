@@ -1,12 +1,11 @@
-
-
-
 const feeds = document.querySelectorAll(".feed");
 
+// 버튼이나 엔터로 댓글을 추가하는 리스너 추가
 feeds.forEach(feed => {
   const input = feed.querySelector(".input-comment");
   ['keypress', 'click'].forEach((eventType) => {
     feed.addEventListener(eventType, e => {
+      //
       let {tagName, classList} = e.target;
       let {type} = e;
       if (type == "click" && tagName != "BUTTON") {
@@ -25,15 +24,21 @@ feeds.forEach(feed => {
   })
 });
 
+// json에 들어있는 코멘트를 feed에 넣음
 fetch('../data/comments.json')
   .then(response => response.json())
   .then(obj => [...obj.comments].forEach((comment) => {
     writeComment.call(feeds[0], comment.comment , comment.username);
   }))
 
+
+/**
+ * @param {String} content : 코멘트 ex) "그게 아니고"
+ * @param {String} wirter : 작성자 ex) "sangyun"
+ * @return {Element}
+  !! this가 feed라는 전제하에 동작함.
+ */
 function writeComment(content, writer) {
-  // this == feed
-  console.dir("this");
   console.dir(this);
   const comment_list = this.querySelector(".comment-list");
   let xmlString = `
