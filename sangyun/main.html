@@ -11,6 +11,8 @@
   <title>Document</title>
 </head>
 <body>
+
+
   <!-- navbar -->
   <header>
     <!-- navbar left side -->
@@ -22,8 +24,29 @@
       <span class="logo">justgram</span>
     </div>
     <!-- navbar searching bar -->
-    <div>
-      <input class="search-input" type="text" placeholder="&#61442; 검색"></input>
+    <div class="search-bar-wrapper">
+      <input class="search-input" type="text" placeholder="&#61442; 검색">
+    </input>
+    <div class="search-result-line">
+      <div class="search-result-box">
+        <div class="result-box-top"></div>
+        <div class="search-results">
+          <!-- 검색 결과 삽입 -->
+            <!-- 삽입될 인스턴스 예시
+              <div class="search-result">
+                <div class="result-profile-img-wrapper">
+                  <img class="result-profile-img" src="${userImgUrl}" alt="">
+                </div>
+                <div class="profile-right-wrapper">
+                  <div class="profile-username">${username}</div>
+                  <div class="profile-comment">${comment}</div>
+                </div>
+              </div>
+            -->
+        </div>
+
+      </div>
+    </div>
     </div>
     <!-- navbar right side -->
     <div>
@@ -98,7 +121,7 @@
         <img class="icon" src="image/three-dots.svg" />
       </div>
       <!-- feed image -->
-      <div class="content-img" style="background: url('https://images.unsplash.com/photo-1664900717079-d38726ec3d37?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHw4fHx8ZW58MHx8fHw%3D&auto=format&fit=crop&w=500&q=60');">
+      <div class="content-img" style="background: url('https://images.unsplash.com/photo-1664923000175-dee661f00437?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHwzfHx8ZW58MHx8fHw%3D&auto=format&fit=crop&w=400&q=60') no-repeat center center">
       </div>
       <!-- feed menu bar -->
       <div class="etc-ui">
@@ -152,7 +175,7 @@
         <img class="icon" src="image/three-dots.svg" />
       </div>
       <!-- feed image -->
-      <div class="content-img" style="background: url('https://images.unsplash.com/photo-1664885812663-11bfdfce4e59?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHwxMHx8fGVufDB8fHx8&auto=format&fit=crop&w=500&q=60');">
+      <div class="content-img" style="background: url('https://images.unsplash.com/photo-1664885812663-11bfdfce4e59?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHwxMHx8fGVufDB8fHx8&auto=format&fit=crop&w=500&q=60') no-repeat center center;">
       </div>
       <!-- feed menu bar -->
       <div class="etc-ui">
