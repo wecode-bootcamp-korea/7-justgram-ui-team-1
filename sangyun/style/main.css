@@ -199,8 +199,12 @@ content .feed {
   font-weight: bold;
 }
 
-.comment-text .bi-heart {
+.comment-text *:last-child {
   margin-right: 10px;
+}
+
+.comment-text i {
+  margin-left: 6px;
 }
 
 .center {

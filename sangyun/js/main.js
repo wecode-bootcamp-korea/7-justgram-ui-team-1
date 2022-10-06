@@ -30,7 +30,22 @@ feeds.forEach(feed => {
   // 댓글 좋아요 터치 시 하트 색 변경하는 리스너 추가
   feed.addEventListener('click', (event) => {
     const {target} = event;
+    const bHeartIcon = target.className.includes("bi-heart");
+    if (!bHeartIcon)
+      return;
 
+    const bFilled = target.className.includes("bi-heart-fill");
+    target.classList.toggle("bi-heart-fill", !bFilled);
+    target.classList.toggle("bi-heart", bFilled);
+  })
+
+  // 휴지통 아이콘 터치 시 댓글 삭제하는 리스너 추가
+  feed.addEventListener('click', (event) => {
+    const {target} = event;
+    const bTrashIcon = target.classList.contains("bi-trash3");
+    if (!bTrashIcon)
+      return;
+    target.closest(".comment-text")?.remove();
   })
 });
 
@@ -56,6 +71,8 @@ function writeComment(content, writer) {
   let xmlString = `
   <div class="comment-text">
     <b class="comment-username">${writer}</b> <span>${content}</span>
+    <i class="bi bi-trash3"></i>
+    <i class="bi bi-heart"></i>
   </div>
   `;
   let doc = htmlToElement(xmlString);
