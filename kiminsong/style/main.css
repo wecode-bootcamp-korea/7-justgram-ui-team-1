@@ -165,5 +165,6 @@ img {
 }
 
 .likeFont {
+  padding-right: 5px;
   font-weight: bold;
 }

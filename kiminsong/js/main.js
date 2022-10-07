@@ -1,11 +1,11 @@
-const commentInput = document.getElementsByClassName("feedReply");
-const pushBtn = document.getElementsByClassName("feedInput-right");
+const replyList = document.getElementsByClassName("feedReply");
+const commentButton = document.getElementsByClassName("feedInput-right");
 
-const commentArray = Array.from(commentInput);
-const commentButtonArray = Array.from(pushBtn);
+const commentArray = Array.from(replyList);
+const commentButtonArray = Array.from(commentButton);
 
 commentButtonArray.forEach((button, index) => {
-  button.addEventListner("click", () => {
+  button.addEventListener("click", () => {
     const input = document.getElementsByClassName("feedInput-left")[index];
     const commentList = document.getElementsByClassName("feedReply")[index];
 
@@ -13,6 +13,7 @@ commentButtonArray.forEach((button, index) => {
     commentCard.classList.add("feedReply-ment");
 
     const nicknameSpan = document.createElement("span");
+    nicknameSpan.classList.add("likeFont");
     nicknameSpan.textContent = "Kiminsee";
 
     const contentSpan = document.createElement("span");
@@ -20,5 +21,7 @@ commentButtonArray.forEach((button, index) => {
 
     commentCard.append(nicknameSpan, contentSpan);
     commentList.append(commentCard);
+
+    input.value = "";
   });
 });
