@@ -5,7 +5,11 @@ fetch('../data/profiles.json')
     profiles = obj.profiles;
   });
 
-
+const profileIcon = document.querySelector("#nav-profile-icon");
+profileIcon.addEventListener('click', () => {
+  const profileBox = document.querySelector(".profile-showbox-wrapper");
+  profileBox.classList.toggle("display-none");
+});
 
 
 // search 관련 리스너 추가

@@ -25,11 +25,10 @@
     </div>
     <!-- navbar searching bar -->
     <div class="search-bar-wrapper">
-      <input class="search-input" type="text" placeholder="&#61442; 검색">
-    </input>
+      <input class="search-input" type="text" placeholder="&#61442; 검색" />
     <div class="search-result-line">
       <div class="search-result-box">
-        <div class="result-box-top"></div>
+        <div class="result-box-up-arrow"></div>
         <div class="search-results">
           <!-- 검색 결과 삽입 -->
             <!-- 삽입될 인스턴스 예시
@@ -49,10 +48,53 @@
     </div>
     </div>
     <!-- navbar right side -->
-    <div>
+    <div class="navbar-right-side-wrapper">
       <img class="img-side-icon" src="https://s3.ap-northeast-2.amazonaws.com/cdn.wecode.co.kr/bearu/explore.png" />
       <img class="img-side-icon" src="https://s3.ap-northeast-2.amazonaws.com/cdn.wecode.co.kr/bearu/heart.png" />
-      <img class="img-side-icon" src="https://s3.ap-northeast-2.amazonaws.com/cdn.wecode.co.kr/bearu/profile.png" />
+      <div class="img-side-icon-wrapper">
+        <img id="nav-profile-icon" class="img-side-icon profile-icon" src="./image/profileImg.jpg" />
+        <div class="profile-showbox-wrapper display-none">
+          <div class="profile-showbox">
+            <div class="profile-showbox-up-arrow"></div>
+            <div class="profile-showbox-items">
+              <div class="profile-showbox-item-wrapper">
+                  <i class="item-description-icon bi bi-person-circle"></i>
+                <div class="item-description-wrapper">
+                  <div class="item-description-text">
+                    프로필
+                  </div>
+                </div>
+              </div>
+              <div class="profile-showbox-item-wrapper">
+                <i class="item-description-icon bi bi-bookmark"></i>
+                <div class="item-description-wrapper">
+                  <div class="item-description-text">
+                    저장됨
+                  </div>
+                </div>
+              </div>
+              <div class="profile-showbox-item-wrapper">
+                <i class="item-description-icon bi bi-gear"></i>
+                <div class="item-description-wrapper">
+                  <div class="item-description-text">
+                    설정
+                  </div>
+                </div>
+              </div>
+              <div
+                class="profile-showbox-item-wrapper"
+                onclick="location.href='login.html';"
+              >
+                <div class="item-description-wrapper">
+                  <div class="item-description-text">
+                    로그아웃
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   </header>
 
@@ -218,9 +260,6 @@
         <button class="add-comment">게시</button>
       </div>
     </div>
-  </div>
-
-
   </content>
 
   <script type="module" src="js/main.js"></script>
