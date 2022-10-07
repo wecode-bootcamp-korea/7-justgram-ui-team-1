@@ -1,10 +1,22 @@
 [
   {
     "nickname": "jtree03",
-    "content": "댓글 테스트1"
+    "content": "댓글을 달아주세요.",
+    "feedIndex": 0
   },
   {
-    "nickname": "jtree03",
-    "content": "댓글 테스트2"
+    "nickname": "kimcode",
+    "content": "댓글을 테스트 하고 있습니다.",
+    "feedIndex": 1
+  },
+  {
+    "nickname": "leecode",
+    "content": "댓글을 아래쪽에 달아보세요.",
+    "feedIndex": 1
+  },
+  {
+    "nickname": "hong-gil-dong",
+    "content": "현재 표시되는 댓글은 3개가 있네요.",
+    "feedIndex": 2
   }
 ]
