@@ -5,6 +5,8 @@ fetch('../data/profiles.json')
     profiles = obj.profiles;
   });
 
+// 상단의 프로필 아이콘 클릭 리스너 추가
+  // 클릭 시 프로필 박스 표시
 const profileIcon = document.querySelector("#nav-profile-icon");
 profileIcon.addEventListener('click', () => {
   const profileBox = document.querySelector(".profile-showbox-wrapper");
