@@ -15,7 +15,7 @@ const users = [
   },
 ];
 
-const posts = [
+let posts = [
   {
     id: 1,
     title: "간단한 HTTP API 개발 시작!",
@@ -140,6 +140,24 @@ http statusCode: ${res.statusCode}
 
   res.send(updatedPostDetail);
 });
+
+app.delete(('/post/:id'), (req, res) => {
+  const postId = req.params.id;
+  const foundedPost = posts.find((post) => (post.id == postId));
+
+  if (!foundedPost) {
+    res.status(400).send(
+    `deleting post has failed.
+there is no matched postId
+http statusCode: ${res.statusCode}
+`   );
+    return;
+  }
+
+  posts = posts.filter((post) => (post.id != postId));
+  res.send("deleting has sucessed");
+
+})
 
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => {
