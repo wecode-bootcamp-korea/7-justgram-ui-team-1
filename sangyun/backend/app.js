@@ -59,6 +59,34 @@ http statusCode: ${res.statusCode}
   });
 });
 
+app.post('/post', (req, res) => {
+  const {title, content, userId} = req.body;
+  // 예외처리
+  if (!title || !content || !userId) {
+    res.status(400).send(
+      `plz send detail request for {title, content, userId}
+http statusCode: ${res.statusCode}
+    `);
+    return;
+  }
+
+  posts.push({
+    id: users.length + 1,
+    title,
+    content,
+    userId
+  });
+
+  res.send({ message:
+    `post Created: ${title}
+http statusCode: ${res.statusCode}
+    `
+  });
+});
+
+
+
+
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}.`);
