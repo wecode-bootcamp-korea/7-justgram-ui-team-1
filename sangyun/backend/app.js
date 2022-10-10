@@ -130,7 +130,7 @@ http statusCode: ${res.statusCode}
   foundedPost.title = title;
   foundedPost.content = content;
 
-  updatedPostDetail = {
+  const updatedPostDetail = {
       postingId : foundedPost.id,
       postingTitle : foundedPost.title,
       postingContent : foundedPost.content,
@@ -158,6 +158,28 @@ http statusCode: ${res.statusCode}
   res.send("deleting has sucessed");
 
 })
+
+app.get(('/user/:id'), (req, res) => {
+  const userId = req.params.id;
+  const foundedUser = users.find((user) => (user.id == userId));
+
+  if (!foundedUser) {
+    res.status(400).send(
+      `there is no matched userId
+http statusCode: ${res.statusCode}
+    `);
+    return;
+  }
+
+  const userData = {
+    userID : foundedUser.id,
+    userName : foundedUser.name,
+    postings: posts.filter((post) => (post.userId == userId))
+  };
+
+  res.send(userData);
+
+});
 
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => {
