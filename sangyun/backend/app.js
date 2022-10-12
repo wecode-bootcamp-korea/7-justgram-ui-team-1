@@ -1,4 +1,6 @@
 const express = require('express');
+const {signup, getUser} = require('./user.controller');
+const {addPost, getPost, updatePost, removePost} = require('./post.controller');
 
 const users = [
   {
@@ -34,152 +36,17 @@ let posts = [
 const app = express();
 app.use(express.json());
 
-app.post('/user', (req, res) => {
-  const {name, email, pwd} = req.body;
+// users
+app.post('/user', signup(users));
+app.get(('/user/:id'), getUser(users, posts));
 
-  // 예외처리
-  if (!name || !email || !pwd) {
-    res.status(400).send(
-      `plz send detail request for {name, email, pwd}
-http statusCode: ${res.statusCode}
-    `);
-    return;
-  }
 
-  users.push({
-    id: users.length + 1,
-    name,
-    email,
-    password: pwd,
-  });
-  res.send({ message:
-    `userCreated: ${name}
-http statusCode: ${res.statusCode}
-    `
-  });
-});
+// posts
+app.post('/post', addPost(users, posts));
+app.get('/post', getPost(users, posts));
+app.patch('/post/:id', updatePost(users, posts));
+app.delete(('/post/:id'), removePost(users, posts));
 
-app.post('/post', (req, res) => {
-  const {title, content, userId} = req.body;
-  // 예외처리
-  const existUserId = users.find((user) => (user.id == userId));
-  if (!existUserId) {
-    res.status(400).send(
-      `there is no matched userId
-http statusCode: ${res.statusCode}
-    `);
-    return;
-  }
-  if (!title || !content || !userId) {
-    res.status(400).send(
-      `plz send detail request for {title, content, userId}
-http statusCode: ${res.statusCode}
-    `);
-    return;
-  }
-
-  posts.push({
-    id: users.length + 1,
-    title,
-    content,
-    userId
-  });
-
-  res.send({ message:
-    `post Created: ${title}
-http statusCode: ${res.statusCode}
-    `
-  });
-});
-
-app.get('/post', (req, res) => {
-  const detailPosts = posts.map((post) => {
-    return {
-      postingId : post.id,
-      postingTitle : post.title,
-      postingContent : post.content,
-      userID : post.userId,
-      userName : users.find((user) => (user.id == post.userId)).name
-    }
-  })
-  res.send(detailPosts);
-})
-
-app.patch('/post/:id', (req, res) => {
-  const postId = req.params.id;
-  const foundedPost = posts.find((post) => (post.id == postId));
-
-  if (!foundedPost) {
-    res.status(400).send(
-      `there is no matched postId
-http statusCode: ${res.statusCode}
-    `);
-    return;
-  }
-
-  const {title, content} = req.body;
-
-  if (!title || !content) {
-    res.status(400).send(
-      `plz send detail request for {title, content}
-http statusCode: ${res.statusCode}
-    `);
-    return;
-  }
-
-  foundedPost.title = title;
-  foundedPost.content = content;
-
-  const updatedPostDetail = {
-      postingId : foundedPost.id,
-      postingTitle : foundedPost.title,
-      postingContent : foundedPost.content,
-      userID : foundedPost.userId,
-      userName : users.find((user) => (user.id == foundedPost.userId)).name
-  };
-
-  res.send(updatedPostDetail);
-});
-
-app.delete(('/post/:id'), (req, res) => {
-  const postId = req.params.id;
-  const foundedPost = posts.find((post) => (post.id == postId));
-
-  if (!foundedPost) {
-    res.status(400).send(
-    `deleting post has failed.
-there is no matched postId
-http statusCode: ${res.statusCode}
-`   );
-    return;
-  }
-
-  posts = posts.filter((post) => (post.id != postId));
-  res.send("deleting has sucessed");
-
-})
-
-app.get(('/user/:id'), (req, res) => {
-  const userId = req.params.id;
-  const foundedUser = users.find((user) => (user.id == userId));
-
-  if (!foundedUser) {
-    res.status(400).send(
-      `there is no matched userId
-http statusCode: ${res.statusCode}
-    `);
-    return;
-  }
-
-  const userData = {
-    userID : foundedUser.id,
-    userName : foundedUser.name,
-    postings: posts.filter((post) => (post.userId == userId))
-  };
-
-  res.send(userData);
-
-});
 
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => {
