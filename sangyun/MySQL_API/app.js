@@ -3,7 +3,8 @@ const express = require('express');
 const dotenv = require('dotenv');
 dotenv.config();
 
-const {getBook, addBook} = require('./book.controller');
+const { getBook, addBook, putBook, deleteBook } = require("./book.controller");
+const {getAuthor, addAuthor} = require('./author.controller');
 
 const app = express();
 app.use(express.json());
@@ -33,10 +34,15 @@ dataSource.initialize().then(() => {
   console.log("Data Source has been initialized!");
 });
 
-//
-
+// book route
 app.get('/book', getBook(dataSource));
 app.post("/book", addBook(dataSource));
+app.put("/book", putBook(dataSource));
+app.delete("/book/:id", deleteBook(dataSource));
+
+// author route
+app.get("/author", getAuthor(dataSource));
+app.post("/author", addAuthor(dataSource));
 
 // init
 const PORT = process.env.PORT || 5000;
