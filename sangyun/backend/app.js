@@ -3,9 +3,14 @@ const {signup, getUser} = require('./user.controller');
 const {addPost, getPost, updatePost, removePost} = require('./post.controller');
 
 const dotenv = require('dotenv');
+const cors = require('cors');
+const morgan = require('morgan'); // morgan 모듈 추가하기
 dotenv.config();
 
 const app = express();
+
+app.use(cors());
+app.use(morgan('combined'));
 app.use(express.json());
 
 const users = [
