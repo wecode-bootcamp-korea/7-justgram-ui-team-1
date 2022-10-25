@@ -1,0 +1,29 @@
+{
+  "profiles": [
+    {
+      "username": "lee",
+      "userImgUrl":"https://cdn.pixabay.com/photo/2017/11/07/14/47/character-2927150_960_720.png",
+      "comment": "지금은 자는 중"
+    },
+    {
+      "username": "leeSang",
+      "userImgUrl":"https://previews.123rf.com/images/jemastock/jemastock1708/jemastock170811641/84180636-man-with-eyeglasses-character-face-avatar-male-vector-illustration.jpg",
+      "comment": "수원시 어딘가에 거주함"
+    },
+    {
+      "username": "leeSuyoug",
+      "userImgUrl":"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQA1QvTTSCsxyfoSMeIWGJhOryszYCpeSTVhrFAncQVp1TgPQVmdmrYOmMpvPUOUVjJjxg&usqp=CAU",
+      "comment": "지금은 자는 중"
+    },
+    {
+      "username": "justCode",
+      "userImgUrl":"https://cdn.pixabay.com/photo/2017/11/07/14/47/character-2927150_960_720.png",
+      "comment": "7기 팟팅?!"
+    },
+    {
+      "username": "weCode",
+      "userImgUrl":"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSixmkruxwKmelNt39vWu54rYXA7LgnhdALxA&usqp=CAU",
+      "comment": "서울 어딘가에 위치함"
+    }
+  ]
+}
