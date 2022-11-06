@@ -1,0 +1,114 @@
+@font-face {
+  font-family: "Lobster", cursive;
+  src: url("../fonts/Lobster/Lobster-Regular.ttf");
+}
+#logo {
+  font-family: "Lobster", cursive;
+  font-weight: bold;
+  font-size: 40px;
+  display: flex;
+  justify-content: center;
+}
+.logIn {
+  border: solid 1px #dbdbdb;
+  margin: 20px auto;
+  width: 350px;
+  height: 396px;
+}
+
+input {
+  display: flex;
+  justify-content: center;
+  width: 250px;
+  height: 18px;
+  margin-bottom: 10px;
+  margin-left: 50px;
+  font-size: 12px;
+  border: solid 1px #dbdbdb;
+  box-shadow: none;
+  border-radius: 3px;
+  background-color: #fafafa;
+  padding: 9px 0px 7px 8px;
+}
+
+button {
+  display: flex;
+  justify-content: center;
+  width: 260px;
+  height: 30px;
+  margin-left: 50px;
+  background-color: #c0dffd;
+  border: none;
+  color: white;
+  font-size: 15px;
+  border-radius: 4px;
+  padding-top: 6px;
+}
+
+.forGetPassWord {
+  display: flex;
+  justify-content: center;
+  margin-top: 100px;
+  font-size: 12px;
+  color: #124172;
+}
+@font-face {
+  font-family: "Lobster", cursive;
+  src: url("../fonts/Lobster/Lobster-Regular.ttf");
+}
+#logo {
+  font-family: "Lobster", cursive;
+  font-weight: bold;
+  font-size: 40px;
+  display: flex;
+  justify-content: center;
+}
+.logIn {
+  border: solid 1px #dbdbdb;
+  margin: 20px auto;
+  width: 350px;
+  height: 396px;
+}
+
+.inputwrap {
+  display: block;
+  border-radius: 5px;
+}
+
+input {
+  display: flex;
+  justify-content: center;
+  width: 250px;
+  height: 18px;
+  margin-bottom: 7px;
+  margin-left: 50px;
+  font-size: 12px;
+  border: solid 1px #dbdbdb;
+  box-shadow: none;
+  border-radius: 3px;
+  background-color: #fafafa;
+  padding: 9px 0px 7px 8px;
+}
+
+button {
+  display: flex;
+  justify-content: center;
+  width: 258px;
+  height: 30px;
+  margin-left: 50px;
+  margin-top: 12px;
+  background-color: #c0dffd;
+  border: none;
+  color: white;
+  font-size: 15px;
+  border-radius: 4px;
+  padding-top: 6px;
+}
+
+.forGetPassWord {
+  display: flex;
+  justify-content: center;
+  margin-top: 100px;
+  font-size: 12px;
+  color: #124172;
+}
